@@ -21,7 +21,6 @@ def status():
 
 @app_views.route('/stats', methods=['GET'], strict_slashes=False)
 def number_objects():
-    try:
         classes = [Amenity, City, Place, Review, State, User]
         names = ["amenities", "cities", "places", "reviews", "states", "users"]
 
@@ -30,5 +29,3 @@ def number_objects():
             num_objs[names[i]] = storage.count(classes[i])
 
         return jsonify(num_objs)
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
