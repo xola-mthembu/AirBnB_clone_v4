@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-""" Index """
 import sys
-sys.path.append('/AirBnB_clone_v3')
 import models
 from models.amenity import Amenity
 from models.city import City
@@ -12,6 +10,7 @@ from models.user import User
 from models import storage
 from api.v1.views import app_views
 from flask import jsonify
+sys.path.append('/AirBnB_clone_v3')
 
 
 @app_views.route('/status', methods=['GET'], strict_slashes=False)
