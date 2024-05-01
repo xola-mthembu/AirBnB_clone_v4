@@ -28,7 +28,9 @@ def not_found(error):
       404:
         description: a resource was not found
     """
-    return make_response(jsonify({'error': "Not found"}), 404)
+    response = jsonify({'error': "Not found"})
+    response.status_code = 404
+    return response
 
 app.config['SWAGGER'] = {
     'title': 'AirBnB clone Restful API',
