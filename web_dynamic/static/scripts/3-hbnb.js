@@ -44,7 +44,7 @@ $.ajax({
 });
 
 $('document').ready(function () {
-  let amenityId = {};
+  let amenities = {};
   $('INPUT[type="checkbox"]').change(function () {
     const dataId = $(this).attr('data-id')
     const dataName =  $(this).attr('data-name')

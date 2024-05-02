@@ -114,3 +114,35 @@ $('document').ready(function () {
     $('div.amenities H4').text(aminityList);
   });
 });
+
+$('document').ready(function () {
+  let states = {};
+  $('.locations ul.popover LI.s input[type=checkbox]').change(function () {
+    const dataId = $(this).attr('data-id')
+    const dataName =  $(this).attr('data-name')
+    if ($(this).is(':checked')) {
+      states[dataId] = dataName;
+    } else {
+      delete states[$(this).attr('data-id')];
+    }
+    const stateList = Object.values(states).join(', ')
+    $('.locations h4').text(stateList);
+  });
+});
+
+$('document').ready(function () {
+  let cities = {};
+  $('.locations ul.popover LI.s input[type=checkbox]').change(function () {
+    const dataId = $(this).attr('data-id')
+    const dataName =  $(this).attr('data-name')
+    if ($(this).is(':checked')) {
+      cities[dataId] = dataName;
+    } else {
+      delete cities[$(this).attr('data-id')];
+    }
+    const cityList = Object.values(cities).join(', ')
+    $('.locations h4').text(cityList);
+  });
+});
+
+
