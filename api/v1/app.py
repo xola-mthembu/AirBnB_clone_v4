@@ -11,7 +11,6 @@ from flasgger.utils import swag_from
 app = Flask(__name__)
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
 app.register_blueprint(app_views)
-app.url_map.strict_slashes = False
 cors = CORS(app, resources={r"/*": {"origins": "0.0.0.0"}})
 
 
@@ -29,9 +28,8 @@ def not_found(error):
       404:
         description: a resource was not found
     """
-    response = jsonify({'error': "Not found"})
-    response.status_code = 404
-    return response
+    return make_response(jsonify({'error': "Not found"}), 404)
+
 
 app.config['SWAGGER'] = {
     'title': 'AirBnB clone Restful API',

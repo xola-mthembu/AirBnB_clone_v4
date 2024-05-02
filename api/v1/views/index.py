@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-import sys
-import models
+""" Index """
 from models.amenity import Amenity
 from models.city import City
 from models.place import Place
@@ -10,7 +9,6 @@ from models.user import User
 from models import storage
 from api.v1.views import app_views
 from flask import jsonify
-sys.path.append('/AirBnB_clone_v3')
 
 
 @app_views.route('/status', methods=['GET'], strict_slashes=False)
@@ -21,7 +19,7 @@ def status():
 
 @app_views.route('/stats', methods=['GET'], strict_slashes=False)
 def number_objects():
-    """ number of objects """
+    """ Retrieves the number of each objects by type """
     classes = [Amenity, City, Place, Review, State, User]
     names = ["amenities", "cities", "places", "reviews", "states", "users"]
 
