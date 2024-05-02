@@ -201,3 +201,25 @@ $.ajax({
     }
   });
 });
+
+$('.reviewSpan').click(function (event) {
+  const placeId = $(this).attr('data-id');
+  const reviewsContainer = $('.reviews ul');
+
+  $.ajax({
+    url: `http://0.0.0.0:5001/api/v1/places/${placeId}/reviews`,
+  })
+  .done(function (data) {
+    reviewsContainer.empty(); // Clear existing reviews
+
+    if ($(this).text() === 'show') {
+      for (const review of data) {
+        reviewsContainer.append(`<li>${review.text}</li>`);
+      }
+      $(this).text('hide'); // Update button text
+    } else {
+      reviewsContainer.empty();
+      $(this).text('show'); // Update button text back
+    }
+  });
+});
