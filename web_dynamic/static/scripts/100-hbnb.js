@@ -145,4 +145,59 @@ $('document').ready(function () {
   });
 });
 
+$('button').click(function () {
+  // Remove existing articles
+  $('article').remove();
 
+  // Prepare data for AJAX request
+  const searchData = {
+    amenities: Object.keys(ls_amen),
+    cities: Object.keys(ls_cities),
+    states: Object.keys(ls_states)
+  };
+
+$.ajax({
+    type: 'POST',
+    url: 'http://127.0.0.1:5002/api/v1/places_search/',
+    data: JSON.stringify(searchData),
+    contentType: 'application/json',
+    success: function (data) {
+      // Process and display search results
+      for (let i = 0; i < data.length; i++) {
+        const place = data[i];
+
+        // Log data for debugging purposes
+        console.log(place);
+        console.log(ls_amen);
+        console.log('cities: ', ls_cities);
+        console.log('states: ', ls_states);
+
+        // Build and append HTML content
+        const html = `
+          <ARTICLE>
+            <DIV class="title">
+              <H2>${place.name}</H2>
+              <DIV class="price_by_night">${place.price_by_night}</DIV>
+            </DIV>
+            <DIV class="information">
+              <DIV class="max_guest">
+                <I class="fa fa-users fa-3x" aria-hidden="true"></I>
+                <BR>${place.max_guest} Guests
+              </DIV>
+              <DIV class="number_rooms">
+                <I class="fa fa-bed fa-3x" aria-hidden="true"></I>
+                <BR>${place.number_rooms} Bedrooms
+              </DIV>
+              <DIV class="number_bathrooms">
+                <I class="fa fa-bath fa-3x" aria-hidden="true"></I>
+                <BR>${place.number_bathrooms} Bathrooms
+              </DIV>
+            </DIV>
+            <DIV class="description">${place.description}</DIV>
+          </ARTICLE>
+        `;
+        $('section.places').append(html);
+      }
+    }
+  });
+});
