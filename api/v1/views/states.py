@@ -28,22 +28,21 @@ def get_state(state_id):
     return jsonify(state.to_dict())
 
 
-@app_views.route('/states/<state_id>', methods=['DELETE'],
-                 strict_slashes=False)
+@app_views.route('/states/<state_id>',
+                 methods=['DELETE'], strict_slashes=False)
 def delete_state(state_id):
-    """
-    Deletes a State Object
-    """
+    try:
+        state = storage.get(State, state_id)
+        if not state:
+            abort(404)
 
-    state = storage.get(State, state_id)
+        storage.delete(state)
+        storage.save()
 
-    if not state:
-        abort(404)
-
-    storage.delete(state)
-    storage.save()
-
-    return make_response(jsonify({}), 200)
+        return make_response(jsonify({}), 200)
+    except Exception as e:
+        print(e)  # Log the exception
+        abort(500)
 
 
 @app_views.route('/states', methods=['POST'], strict_slashes=False)
