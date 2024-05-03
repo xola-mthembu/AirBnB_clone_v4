@@ -50,6 +50,10 @@ def post_state():
     """
     Creates a State
     """
+    # Check if the request content type is not 'application/json'
+    if request.content_type != 'application/json':
+        abort(400, description="Content-Type not json")
+
     # Retrieve JSON data from the request
     data = request.get_json()
 
@@ -74,6 +78,10 @@ def put_state(state_id):
     """
     Updates a State
     """
+    # Check if the request content type is not 'application/json'
+    if request.content_type != 'application/json':
+        abort(400, description="Content-Type not json")
+
     state = storage.get(State, state_id)
 
     # Check if the requested state exists
