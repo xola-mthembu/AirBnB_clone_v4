@@ -70,12 +70,23 @@ button:hover {
 
 .amenities .popover {
     padding: 10px 0;
+    width: 300px;
+    position: absolute;
     margin-left: -5px;
-    margin-top: 0%;
+    margin-top: 70px;
 }
 
 .amenities .popover ul{
     margin: 0px;
+}
+
+.amenities h4 {
+    margin-top: 5px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    height: fit-content;
+    width: 150%;
 }
 
 .locations .popover {
