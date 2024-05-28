@@ -1,27 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Set the character encoding to UTF-8 -->
     <meta charset="UTF-8">
-
     <!-- Link to the common CSS stylesheet -->
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/4-common.css') }}?cache_id={{ cache_id }}">
-
+    <link rel="stylesheet" type="text/css" href="../static/styles/4-common.css?{{ cache_id }}">
     <!-- Link to the header CSS stylesheet -->
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/3-header.css') }}?cache_id={{ cache_id }}">
-
+    <link rel="stylesheet" type="text/css" href="../static/styles/3-header.css?{{ cache_id }}">
     <!-- Link to the footer CSS stylesheet -->
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/3-footer.css') }}?cache_id={{ cache_id }}">
-
+    <link rel="stylesheet" type="text/css" href="../static/styles/3-footer.css?{{ cache_id }}">
     <!-- Link to the filters CSS stylesheet -->
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/6-filters.css') }}?cache_id={{ cache_id }}">
-
+    <link rel="stylesheet" type="text/css" href="../static/styles/6-filters.css?{{ cache_id }}">
     <!-- Link to the places CSS stylesheet -->
-    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='styles/8-places.css') }}?cache_id={{ cache_id }}">
-
+    <link type="text/css" rel="stylesheet" href="../static/styles/8-places.css?{{ cache_id }}">
     <!-- Set the favicon for the website -->
-    <link rel="icon" href="../static/images/icon.png" />
-
+    <link rel="icon" href="../static/images/icon.png?{{ cache_id }}" />
     <!-- Set the title of the webpage -->
     <title>HBnB</title>
   </head>
@@ -31,7 +23,6 @@
       <!-- Logo of the website -->
       <div class="logo"></div>
     </header>
-
     <!-- Container for the main content of the website -->
     <div class="container">
       <!-- Filters section for searching for places -->
@@ -40,10 +31,8 @@
         <div class="locations">
           <!-- Heading for the locations section -->
           <h3>States</h3>
-
           <!-- Empty heading for spacing -->
           <h4>&nbsp;</h4>
-
           <!-- Popover for displaying the list of states and cities -->
           <div class="popover">
             <!-- Unordered list for the states and cities -->
@@ -53,7 +42,6 @@
               <li>
                 <!-- Heading for the state name -->
                 <h2>{{ state[0].name }}:</h2>
-
                 <!-- Unordered list for the cities in the state -->
                 <ul>
                   <!-- Loop through the cities in the state and display them as list items -->
@@ -66,15 +54,12 @@
             </ul>
           </div>
         </div>
-
         <!-- Amenities section for selecting amenities -->
         <div class="amenities">
           <!-- Heading for the amenities section -->
           <h3>Amenities</h3>
-
           <!-- Empty heading for spacing -->
           <h4>&nbsp;</h4>
-
           <!-- Popover for displaying the list of amenities -->
           <div class="popover">
             <!-- Unordered list for the amenities -->
@@ -93,41 +78,44 @@
       <div class="placesh1"><h1>Places</h1></div>
       <!-- Section for displaying all places -->
       <section class="places">
-	
-  <!-- Loop that iterates through all places in the "places" variable -->
-	{% for place in places %}
-  <!-- Start of article tag for a single place -->
-	<article>
-    <!-- Div tag for the title and price of the place -->
-	  <div class="title_box">
-      <!-- Displays the name of the place -->
-	    <h2>{{ place.name }}</h2>
-      <!-- Displays the price per night of the place -->
-	    <div class="price_by_night">${{ place.price_by_night }}</div>
-	  </div> <!-- End of div tag for the title and price of the place -->
-
-    <!-- Div tag for the information about the place -->
-	  <div class="information">
-      <!-- Displays the maximum number of guests that can stay in the place -->
-	    <div class="max_guest">{{ place.max_guest }} Guest{% if place.max_guest != 1 %}s{% endif %}</div>
+        <!-- Loop that iterates through all places in the "places" variable -->
+        {% for place in places %}
+        <!-- Start of article tag for a single place -->
+        <article>
+          <!-- Div tag for the title and price of the place -->
+          <div class="title_box">
+            <!-- Displays the name of the place -->
+            <h2>{{ place.name }}</h2>
+            <!-- Displays the price per night of the place -->
+            <div class="price_by_night">${{ place.price_by_night }}</div>
+          </div>
+          <!-- End of div tag for the title and price of the place -->
+          <!-- Div tag for the information about the place -->
+          <div class="information">
+            <!-- Displays the maximum number of guests that can stay in the place -->
+            <div class="max_guest">{{ place.max_guest }} Guest{% if place.max_guest != 1 %}s{% endif %}</div>
             <!-- Displays the number of bedrooms in the place -->
             <div class="number_rooms">{{ place.number_rooms }} Bedroom{% if place.number_rooms != 1 %}s{% endif %}</div>
             <!-- Displays the number of bathrooms in the place -->
             <div class="number_bathrooms">{{ place.number_bathrooms }} Bathroom{% if place.number_bathrooms != 1 %}s{% endif %}</div>
-	  </div> <!-- End of div tag for the information about the place -->
-
-    <!-- Div tag for the information about the owner of the place -->
-	  <div class="user">
+          </div>
+          <!-- End of div tag for the information about the place -->
+          <!-- Div tag for the information about the owner of the place -->
+          <div class="user">
             <!-- Displays the first and last name of the owner of the place -->
             <b>Owner:</b> {{ place.user.first_name }} {{ place.user.last_name }}
-          </div> <!-- End of div tag for the information about the owner of the place -->
-
+          </div>
+          <!-- End of div tag for the information about the owner of the place -->
           <!-- Div tag for the description of the place -->
           <div class="description">
-	    {{ place.description | safe }}
-          </div> <!-- End of div tag for the description of the place -->
-	</article> <!-- End of article tag for a single place -->
-	{% endfor %} <!-- End of loop that iterates through all places in the "places" variable -->
+            <!-- Displays the description of the place -->
+            {{ place.description | safe }}
+          </div>
+          <!-- End of div tag for the description of the place -->
+        </article>
+        <!-- End of article tag for a single place -->
+        {% endfor %}
+        <!-- End of loop that iterates through all places in the "places" variable -->
       </section>
     </div>
     <footer>
