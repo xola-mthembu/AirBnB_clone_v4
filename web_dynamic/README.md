@@ -21,5 +21,3 @@ This part of the Airbnb clone project focuses on adding dynamic functionality us
 Aydan Jafarli <aydan.jafarli@holbertonstudents.com>
 
 Ziyad Ibrahimov <ziyad.ibrahimov@holbertonstudents.com>
-
-
