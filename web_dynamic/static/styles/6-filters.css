@@ -91,6 +91,21 @@ button:hover {
     padding-left: 10px;
 }
 
+.popover ul li label { /* Change: Flexbox for label */
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.popover ul li label span { /* Change: Ensure text wraps within its own container */
+    flex: 1;
+    word-break: break-word;
+}
+
+.popover ul li label input[type="checkbox"] { /* Change: Margin for checkbox */
+    margin-right: 10px;
+}
+
 .popover ul h2{
     margin-top: 1.5%;
     margin-bottom: 5%;
