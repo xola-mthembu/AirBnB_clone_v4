@@ -12,9 +12,9 @@ This part of the Airbnb clone project focuses on adding dynamic functionality us
 
 ## Screenshots
 
-![Main Page](web_dynamic/screenshots/Screenshot 2024-05-28 at 22.49.52.png)
+![Landing Page](web_dynamic/screenshots/main.png)
 
-![Filtered Results](screenshots/Screenshot 2024-05-28 at 22.49.52.png)
+![Filtered Results](web_dynamic/screenshots/filtered.png)
 
 ## Authors
 
