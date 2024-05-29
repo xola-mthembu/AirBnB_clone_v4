@@ -23,24 +23,26 @@ $(document).ready(function () {
             delete checkedAmenities[amenityID];
         }
 
-        updateAmenitiesDisplay();
-    });
-
-    function updateAmenitiesDisplay() {
-        const selectedAmenities = Object.values(checkedAmenities);
-        let displayText = selectedAmenities.join(', ');
-
-        if (displayText.length > 30) {
-            displayText = displayText.substring(0, 30) + '...';
-        }
-
-        if (selectedAmenities.length > 0) {
-            $(".amenities h4").text(displayText);
+        // If no keys, we have a &nbsp taking the place for it
+        // This will prevent changes in space between elements
+        if (Object.keys(checkedAmenities).length != 0) {
+            let spanText = Object.values(checkedAmenities).join(", ");
+            let newSpan = "<span>" + spanText + "</span>";
+            $(".amenities h4").html(newSpan);
         } else {
             $(".amenities h4").html("&nbsp;");
         }
-    }
+
+        // Had to make a span inside h4 to apply ellipsis ...
+        $(".amenities h4 span").css({
+            "white-space": "nowrap",
+            overflow: "hidden",
+            "text-overflow": "ellipsis",
+            "max-width": "205px",
+            display: "block",
+        });
+    });
 
     // Initial state
-    updateAmenitiesDisplay();
+    $(".amenities h4").html("&nbsp;");
 });
