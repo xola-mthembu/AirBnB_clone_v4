@@ -1,0 +1,18 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "hbnb",
+            "database": "hbnb_dev_db",
+            "username": "hbnb_dev",
+            "password": "hbnb_dev_pwd"
+        }
+    ]
+}
