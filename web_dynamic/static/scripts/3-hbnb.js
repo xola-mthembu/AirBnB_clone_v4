@@ -60,6 +60,7 @@ $('document').ready(function () {
 
   // Initialize an empty object to store selected amenities
   const listAmenities = {};
+  const amenities_names = [];
   
   // Listen for changes on checkbox inputs
   $('input[type="checkbox"]').change(function () {
