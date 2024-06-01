@@ -1,4 +1,4 @@
--- Active: 1717127213991@@127.0.0.1@3306@hbnb_dev_db
+-- Active: 1717204243964@@127.0.0.1@3306
 -- MySQL dump 10.13  Distrib 5.7.22, for Linux (x86_64)
 --
 -- Host: localhost    Database: hbnb_dev_db
