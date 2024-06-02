@@ -159,6 +159,22 @@ Jennifer Huang - [Github](https://github.com/jhuang10123) / [Twitter](https://tw
 Jhoan Zamora - [Github](https://github.com/jzamora5) / [Twitter](https://twitter.com/JhoanZamora10)  
 David Ovalle - [Github](https://github.com/Nukemenonai) / [Twitter](https://twitter.com/disartDave)
 
+# AirBnB Clone - Version 4
+
+This repository contains the fourth version of the AirBnB clone project, 
+which is part of the Holberton School curriculum. The project involves 
+creating a dynamic web application using Flask, JavaScript, and various 
+other technologies.
+
+## Authors
+- Xola Mthembu - [GitHub] (https://github.com/xola-mthembu)
+
+## New Contributions
+- Added dynamic content loading
+- Improved API integrations
+- Enhanced frontend interactivity with jQuery and AJAX
+
+
 Second part of Airbnb: Joann Vuong
 ## License
 Public Domain. No copy write protection. 
